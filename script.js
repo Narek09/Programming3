@@ -121,3 +121,4 @@ function generateMatrix(x, y, grassCount, grassEaterCount, allEaterCount, allGra
     }
     return matrix;
 }
+let a = 9
