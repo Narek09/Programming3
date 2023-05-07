@@ -1,19 +1,8 @@
 // մանուշակագույն- կարմիրին և դեղինին ուտող
-class AllGrassEater {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.energy = 15;
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x,     this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y    ],
-            [this.x + 1, this.y    ],
-            [this.x - 1, this.y + 1],
-            [this.x,     this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
+class AllGrassEater extends Parent {
+    constructor(x,y){
+        super(x,y)
+        this.energy = 15
     }
     getNewCoordinates() {
         this.directions = [
