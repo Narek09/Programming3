@@ -16,7 +16,7 @@ let AllGrassEater = require('./erkuEater')
 let Grass = require ('./grass')
 let Amenaker = require('./Amenaker')
 
-
+// splice arr
 
  matrix = [];
  grassArr = [];
