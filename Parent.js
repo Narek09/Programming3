@@ -1,4 +1,4 @@
-class Parent {
+module.exports = class Parent {
     constructor(x, y){
         this.x = x;
         this.y = y;
@@ -26,5 +26,11 @@ class Parent {
             }   
         }
         return found;
+    }
+
+    random(arr){
+        let result = Math.floor(Math.random() * arr.length)
+        return arr[result]
+
     }
 }

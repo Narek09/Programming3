@@ -1,6 +1,6 @@
 // դեղին գույն- խոտ ուտող
-
-class GrassEater extends Parent{
+let Parent = require('./Parent')
+module.exports = class GrassEater extends Parent{
    constructor(x,y){
        super(x,y)
        this.energy = 20
@@ -19,7 +19,7 @@ class GrassEater extends Parent{
     }
     eat(){
         let found = this.chooseCell(1);
-        let oneCell = random(found);
+        let oneCell = this.random(found);
         if(oneCell) {
             this.energy += 6;
             let newX = oneCell[0];
@@ -44,7 +44,7 @@ class GrassEater extends Parent{
     }
     move(){
         let found = this.chooseCell(0);
-        let oneCell = random(found);
+        let oneCell = this.random(found);
         if(oneCell){
             let newX = oneCell[0];
             let newY = oneCell[1];
@@ -76,14 +76,14 @@ class GrassEater extends Parent{
 
     mul(){
         let found = this.chooseCell(0);
-        let oneCell = random(found);
+        let oneCell = this.random(found);
         if(oneCell){
             let x = oneCell[0];
             let y = oneCell[1];
             matrix[y][x] = 2;
             let grassEater = new GrassEater(x, y);
             grassEaterArr.push(grassEater);
-            this.energy = 10;
+            this.energy = 20;
         }
     }
 

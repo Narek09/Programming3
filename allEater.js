@@ -1,5 +1,6 @@
 // Կարմիր- խոտին և խոտ ուտողին ուտող
-class AllEater extends Parent {
+let Parent = require('./Parent')
+module.exports = class AllEater extends Parent {
     constructor(x,y){
         super(x,y)
         this.energy = 10
@@ -32,7 +33,7 @@ class AllEater extends Parent {
     }
     eat() {
         let found = this.chooseCell(1, 2);
-        let oneCell = random(found);
+        let oneCell = this.random(found);
         if (oneCell) {
             this.energy += 5;
             let newX = oneCell[0];
@@ -67,7 +68,7 @@ class AllEater extends Parent {
     }
     move() {
         let found = this.chooseCell(0);
-        let oneCell = random(found);
+        let oneCell = this.random(found);
         if (oneCell) {
             let newX = oneCell[0];
             let newY = oneCell[1];
@@ -98,7 +99,7 @@ class AllEater extends Parent {
     }
     mul() {
         let found = this.chooseCell(0);
-        let oneCell = random(found);
+        let oneCell = this.random(found);
         if (oneCell) {
             let x = oneCell[0];
             let y = oneCell[1];

@@ -1,8 +1,9 @@
 //կապույտ- ուտում է բոլորին
-class Amenaker extends Parent {
+let Parent = require('./Parent')
+module.exports =   class Amenaker extends Parent {
     constructor(x,y){
         super(x,y)
-        this.energy = 8
+        this.energy = 10
     }
     getNewCoordinates() {
         this.directions = [
@@ -32,7 +33,7 @@ class Amenaker extends Parent {
     }
     eat() {
         let found = this.chooseCell(2, 3, 1, 4);
-        let oneCell = random(found);
+        let oneCell = this.random(found);
         if (oneCell) {
             this.energy += 3;
             let newX = oneCell[0];
@@ -84,7 +85,7 @@ class Amenaker extends Parent {
     }
     move() {
         let found = this.chooseCell(0);
-        let oneCell = random(found);
+        let oneCell = this.random(found);
         if (oneCell) {
             let newX = oneCell[0];
             let newY = oneCell[1];
@@ -115,7 +116,7 @@ class Amenaker extends Parent {
     }
     mul() {
         let found = this.chooseCell(0);
-        let oneCell = random(found);
+        let oneCell = this.random(found);
         if (oneCell){
             let x = oneCell[0];
             let y = oneCell[1];
