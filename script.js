@@ -28,6 +28,9 @@ function drawMatrix(matrix) {
             else if (matrix[y][x] == 5) {
                 fill('blue')
             }
+            else if (matrix[y][x] == 6) {
+                fill('gray')
+            }
             else {
                 fill("#acacac");
             }
