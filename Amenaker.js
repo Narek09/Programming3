@@ -126,4 +126,8 @@ module.exports =   class Amenaker extends Parent {
             this.energy = 8;
         }
     }
+    dandagh(){
+        let Dandagh = document.getElementById("dandagh")
+        Dandagh.addEventListener("click", setTimeout(this.mul,5000))
+    }
 }

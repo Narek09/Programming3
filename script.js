@@ -15,6 +15,7 @@ function drawMatrix(matrix) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
                 fill("green");
+                document.getElementById("dzmer").addEventListener("click", fill("white"))
             }
             else if (matrix[y][x] == 2) {
                 fill('yellow');

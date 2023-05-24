@@ -15,23 +15,29 @@ let AllEater = require('./allEater')
 let AllGrassEater = require('./erkuEater')
 let Grass = require ('./grass')
 let Amenaker = require('./Amenaker')
-let Bomb = require('./bomb')
+// let Bomb = require('./bomb')
 // splice arr
 
- matrix = [];
- grassArr = [];
- grassEaterArr = [];
- allEaterArr = [];
- allGrassEaterArr = [];
- amenakerArr = [];
- bombArr = [];
+
+ let matrix = [];
+ let grassArr = [];
+ let grassEaterArr = [];
+ let allEaterArr = [];
+ let allGrassEaterArr = [];
+ let amenakerArr = [];
+
+
+
+
+
+//  let bombArr = [];
   function randomm(min, max){
    let result = Math.floor(Math.random() * (min+max) - min +1)
    return result
 
 }
 function createCanvas() {
-   function generateMatrix(x, y, grassCount, grassEaterCount, allEaterCount, allGrassEater, amenakerCount, bombCount) {
+   function generateMatrix(x, y, grassCount, grassEaterCount, allEaterCount, allGrassEaterCount, amenakerCount) {
       let matrix = [];
       for (let i = 0; i < x; i++) {
          matrix.push([]);
@@ -60,7 +66,7 @@ function createCanvas() {
             matrix[newY][newX] = 3;
          }
       }
-      for (let i = 0; i < allGrassEater; i++) {
+      for (let i = 0; i < allGrassEaterCount; i++) {
          let newX = randomm(0,x)
          let newY = randomm(0,y)
          if (matrix[newY][newX] == 0) {
@@ -74,16 +80,16 @@ function createCanvas() {
             matrix[newY][newX] = 5;
          }
       }
-      for (let i = 0; i < bombCount; i++) {
-         let newX = randomm(0,x)
-         let newY = randomm(0,y)
-         if (matrix[newY][newX] == 0) {
-            matrix[newY][newX] = 6;
-         }
-      }
+      // for (let i = 0; i < bombCount; i++) {
+      //    let newX = randomm(0,x)
+      //    let newY = randomm(0,y)
+      //    if (matrix[newY][newX] == 0) {
+      //       matrix[newY][newX] = 6;
+      //    }
+      // }
       return matrix;
    }
-   matrix = generateMatrix(50, 50, 10, 30, 10, 10, 20, 2);
+   matrix = generateMatrix(50, 50, 10, 30, 10, 10, 20);
 
    for (var y = 0; y < matrix.length; y++) {
       for (var x = 0; x < matrix[y].length; x++) {
@@ -107,10 +113,10 @@ function createCanvas() {
             let amenaker = new Amenaker(x, y);
             amenakerArr.push(amenaker);
          }
-         else if (matrix[y][x] === 6) {
-            let bomb = new Bomb(x, y)
-            bombArr.push(bomb)
-        }
+      //    else if (matrix[y][x] === 6) {
+      //       let bomb = new Bomb(x, y)
+      //       bombArr.push(bomb)
+      //   }
       }
    }
 }
@@ -132,9 +138,9 @@ function playGame() {
   for(let i = 0; i < amenakerArr.length; i++){
       amenakerArr[i].eat()
   }
-  for(let i = 0; i < bombArr.length; i++){
-      bombArr[i].start()
-  }
+//   for(let i = 0; i < bombArr.length; i++){
+//       bombArr[i].start()
+//   }
   io.emit('matrix', matrix)
   return matrix
 }
@@ -143,6 +149,8 @@ function playGame() {
 createCanvas();
 
 setInterval(playGame, 1000);
+document.getElementById("jnjel").addEventListener("click", matrix.splice(randomm(50,50)))
+
 
 io.on('connection', function(socket){
    socket.emit('matrix', matrix)

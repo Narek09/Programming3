@@ -109,4 +109,6 @@ module.exports = class AllGrassEater extends Parent {
             this.energy = 15;
         }
     }
+    
 }
+
