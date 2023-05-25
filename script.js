@@ -9,13 +9,24 @@ function setup() {
 
     background('#acacac');
 
+
 }
+let color = "green"
+function guyn(){
+    color = "white"
+    // socket.emit("signal","winter")
+}
+function da(){
+    socket.emit('si',"winter" )
+}
+document.getElementById("dandagh").addEventListener("click", da)
+document.getElementById("dzmer").addEventListener("click", guyn)
 function drawMatrix(matrix) {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
-                fill("green");
-                document.getElementById("dzmer").addEventListener("click", fill("white"))
+                fill(color);
+                
             }
             else if (matrix[y][x] == 2) {
                 fill('yellow');
@@ -44,6 +55,17 @@ socket.on('matrix', function (matrix) {
     drawMatrix(matrix)
 })
 
+// let jnjel = document.getElementById("jnjel")
+// // .addEventListener("click", matrix.splice(randomm(0,50)))
+// function Jnjel(){
+//     jnjel.addEventListener("click", matrix.splice(randomm(0,50)))
+// }
+
+// socket.on('jnjel', Jnjel)
+
+socket.on("qanak",(arg)=>{
+    console.log(arg);
+})
 socket.on('initial', function (matrix) {
     initialMatrix = matrix
 })

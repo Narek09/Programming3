@@ -31,7 +31,7 @@ module.exports =   class Amenaker extends Parent {
         }
         return found;
     }
-    eat() {
+    eat(max_energy) {
         let found = this.chooseCell(2, 3, 1, 4);
         let oneCell = this.random(found);
         if (oneCell) {
@@ -75,7 +75,8 @@ module.exports =   class Amenaker extends Parent {
             matrix[this.y][this.x] = 0;
             this.x = newX;
             this.y = newY;
-            if (this.energy > 14) {
+            console.log(max_energy);
+            if (this.energy > max_energy) {
                 this.mul();
             }
         }
@@ -126,8 +127,8 @@ module.exports =   class Amenaker extends Parent {
             this.energy = 8;
         }
     }
-    dandagh(){
-        let Dandagh = document.getElementById("dandagh")
-        Dandagh.addEventListener("click", setTimeout(this.mul,5000))
-    }
+    // dandagh(){
+    //     let Dandagh = document.getElementById("dandagh")
+    //     Dandagh.addEventListener("click", setTimeout(this.mul,5000))
+    // }
 }

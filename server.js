@@ -19,14 +19,16 @@ let Amenaker = require('./Amenaker')
 // splice arr
 
 
- let matrix = [];
- let grassArr = [];
- let grassEaterArr = [];
- let allEaterArr = [];
- let allGrassEaterArr = [];
- let amenakerArr = [];
+  matrix = [];
+  grassArr = [];
+  grassEaterArr = [];
+  allEaterArr = [];
+  allGrassEaterArr = [];
+  amenakerArr = [];
 
-
+io.on("connection", (socket)=>{
+   socket.emit("qanak",grassArr)
+})
 
 
 
@@ -46,36 +48,36 @@ function createCanvas() {
          }
       }
       for (let i = 0; i < grassCount; i++) {
-         let newX = randomm(0,x)
-         let newY = randomm(0,y)
+         let newX = randomm(0,x-1)
+         let newY = randomm(0,y-1)
          if (matrix[newY][newX] == 0) {
             matrix[newY][newX] = 1;
          }
       }
       for (let i = 0; i < grassEaterCount; i++) {
-         let newX = randomm(0,x)
-         let newY = randomm(0,y)
+         let newX = randomm(0,x-1)
+         let newY = randomm(0,y-1)
          if (matrix[newY][newX] == 0) {
             matrix[newY][newX] = 2;
          }
       }
       for (let i = 0; i < allEaterCount; i++) {
-         let newX = randomm(0,x)
-         let newY = randomm(0,y)
+         let newX = randomm(0,x-1)
+         let newY = randomm(0,y-1)
          if (matrix[newY][newX] == 0) {
             matrix[newY][newX] = 3;
          }
       }
       for (let i = 0; i < allGrassEaterCount; i++) {
-         let newX = randomm(0,x)
-         let newY = randomm(0,y)
+         let newX = randomm(0,x-1)
+         let newY = randomm(0,y-1)
          if (matrix[newY][newX] == 0) {
             matrix[newY][newX] = 4;
          }
       }
       for (let i = 0; i < amenakerCount; i++) {
-         let newX = randomm(0,x)
-         let newY = randomm(0,y)
+         let newX = randomm(0,x-1)
+         let newY = randomm(0,y-1)
          if (matrix[newY][newX] == 0) {
             matrix[newY][newX] = 5;
          }
@@ -120,8 +122,11 @@ function createCanvas() {
       }
    }
 }
+let x = 14
 
-
+function winter(){
+   x = 40
+}
 function playGame() {
    for (let i = 0; i < grassArr.length; i++) {
       grassArr[i].mul();
@@ -136,7 +141,7 @@ function playGame() {
       allGrassEaterArr[i].eat()
   }
   for(let i = 0; i < amenakerArr.length; i++){
-      amenakerArr[i].eat()
+      amenakerArr[i].eat(x)
   }
 //   for(let i = 0; i < bombArr.length; i++){
 //       bombArr[i].start()
@@ -148,11 +153,10 @@ function playGame() {
 
 createCanvas();
 
-setInterval(playGame, 1000);
-document.getElementById("jnjel").addEventListener("click", matrix.splice(randomm(50,50)))
-
+setInterval(playGame, 500);
 
 io.on('connection', function(socket){
+   socket.on("si",winter)
    socket.emit('matrix', matrix)
    socket.emit('initial', matrix)
 })

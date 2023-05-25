@@ -1,8 +1,9 @@
-// let Parent = require("./Parent");
-// module.exports = class Bomb extends Parent {
-//     constructor(x, y) {
-//         super(x,y)
-//         this.energy = 15
+    // let Parent = require("./Parent");
+    // module.exports = class Bomb extends Parent {
+    //   constructor(x, y) {
+    //     super(x, y)
+    //     this.energy = 15
+    //     this.directions = []
 //         this.x = x;
 //         this.y = y;
 //         this.bursted = false;
