@@ -26,9 +26,6 @@ let Amenaker = require('./Amenaker')
   allGrassEaterArr = [];
   amenakerArr = [];
 
-io.on("connection", (socket)=>{
-   socket.emit("qanak",grassArr)
-})
 
 
 
@@ -122,6 +119,11 @@ function createCanvas() {
       }
    }
 }
+
+// function q(){
+//    io.emit("signal", grassArr)
+// }
+
 let x = 14
 
 function winter(){
@@ -155,8 +157,17 @@ createCanvas();
 
 setInterval(playGame, 500);
 
+function startInterval(){
+   clearInterval(intervalId);
+   intervalId = setInterval(()=>{
+      io.emit("qanak", grassArr.length);
+   },5)
+}
+
 io.on('connection', function(socket){
    socket.on("si",winter)
+   socket.emit("qanak", startInterval)
+   socket.emit("qanak",grassArr.length)
    socket.emit('matrix', matrix)
    socket.emit('initial', matrix)
 })

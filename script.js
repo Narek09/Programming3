@@ -14,11 +14,17 @@ function setup() {
 let color = "green"
 function guyn(){
     color = "white"
-    // socket.emit("signal","winter")
 }
 function da(){
     socket.emit('si',"winter" )
 }
+function qanak(){
+    socket.on("qanak", function(data){
+        console.log(data);
+        // document.getElementById("qan").innerHTML(grassArr)
+    })
+}
+document.getElementById("jnjel").addEventListener("click", qanak)
 document.getElementById("dandagh").addEventListener("click", da)
 document.getElementById("dzmer").addEventListener("click", guyn)
 function drawMatrix(matrix) {
@@ -63,9 +69,6 @@ socket.on('matrix', function (matrix) {
 
 // socket.on('jnjel', Jnjel)
 
-socket.on("qanak",(arg)=>{
-    console.log(arg);
-})
 socket.on('initial', function (matrix) {
     initialMatrix = matrix
 })
