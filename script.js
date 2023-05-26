@@ -19,7 +19,8 @@ function da(){
     socket.emit('si',"winter" )
 }
 function qanak(data){
-    document.getElementById("qan").innerHTML = data
+    document.getElementById("qan").innerHTML = data.gras
+    document.getElementById("qan2").innerHTML = data.ge
 }
 socket.on("qanak", function(data){
         qanak(data)

@@ -141,19 +141,25 @@ function playGame() {
   for(let i = 0; i < bombArr.length; i++){
       bombArr[i].explode()
   }
+  let data = {
+  gras: grassArr.length,
+  ge: grassEaterArr.length
+}
+  io.emit("qanak", data);
   io.emit('matrix', matrix)
   return matrix
 }
+
 let intervalId;
 startInterval()
+
 createCanvas();
 
-setInterval(playGame, 500);
-
 function startInterval(){
+
    clearInterval(intervalId);
    intervalId = setInterval(()=>{
-      io.emit("qanak", grassArr.length);
+      playGame()
    },600)
 }
 
