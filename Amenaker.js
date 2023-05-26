@@ -75,7 +75,7 @@ module.exports =   class Amenaker extends Parent {
             matrix[this.y][this.x] = 0;
             this.x = newX;
             this.y = newY;
-            console.log(max_energy);
+            // console.log(max_energy);
             if (this.energy > max_energy) {
                 this.mul();
             }
@@ -127,8 +127,4 @@ module.exports =   class Amenaker extends Parent {
             this.energy = 8;
         }
     }
-    // dandagh(){
-    //     let Dandagh = document.getElementById("dandagh")
-    //     Dandagh.addEventListener("click", setTimeout(this.mul,5000))
-    // }
 }

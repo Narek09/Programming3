@@ -9,49 +9,86 @@
         body{
             margin-left: 10%;
         }
-        span{
+        .span{
+            font-size: 40px;
             background-color: rgba(0, 0, 0, 0.208);
         }
         .kanach{
+            font-size: 40px;
             color: green;
             background-color: rgba(0, 0, 0, 0.208);
         }
         .deghin{
+            font-size: 40px;
             color: yellow;
             background-color: rgba(0, 0, 0, 0.208);
         }
         .karmir{
+            font-size: 40px;
             color: red;
             background-color: rgba(0, 0, 0, 0.208);
         }
         .purple{
+            font-size: 40px;
             color: purple;
             background-color: rgba(0, 0, 0, 0.208);
         }
         .kapuyt{
+            font-size: 40px;
             color: blue;
             background-color: rgba(0, 0, 0, 0.208);
         }
         #jnjel{
-            font-size: 30px;
+            font-size: 40px;
+        }
+        #qanak{
+            font-size: 40px;
+        }
+        #dandagh{
+            font-size: 40px;
+        }
+        #dzmer{
+            font-size: 40px;
+        }
+        #qan{     
+            
+            font-size: 40px;
+            color: black;  
+        }
+        #xot{
+            margin-top: 30px;
+            font-size: 40px;
+        }
+        .qanak{
+            text-align: center;
+            background-color: #bbb;
+            display: flex;
+            flex-direction: row;
+            width: 11%;
+            height: 100%;
+            margin-bottom: 20px;
+            gap: 20px;
         }
     </style>
 </head>
 <body>
     <div class="bolor">
-        <span class="kanach">Կանաչ</span><span>- խոտ</span>
-        <span class="deghin"> Դեղին</span><span> - խոտ ուտող</span>
-        <br> <span class="karmir">Կարմիր</span><span> - կանաչին և դեղինին ուտող </span>
-        <br> <span class="purple">Մանուշակագույն</span><span> - դեղինին և կարմիրին ուտող</span> 
-        <br> <span class="kapuyt">Կապույտ</span><span> - բոլորին ուտող</span>
+        <span class="kanach">Կանաչ</span><span class="span">- խոտ</span>
+        <span class="deghin">Դեղին</span><span class="span"> - խոտ ուտող</span>
+        <br> <span class="karmir">Կարմիր</span><span class="span"> - կանաչին և դեղինին ուտող </span>
+        <br> <span class="purple">Մանուշակագույն</span><span class="span"> - դեղինին և կարմիրին ուտող</span> 
+        <br> <span class="kapuyt">Կապույտ</span><span class="span"> - բոլորին ուտող</span>
     </div>
     <div class="hraman">
-        <span id="jnjel">Jnjel</span>
+        <span id="jnjel">Ջնջել</span>
         <br>
-        <span id="dandagh">Dandaghacnel</span>
+        <span id="dandagh">Դանդաղացնել</span>
         <br>
-        <span id="dzmer">Dzmer</span>
-        <p id="qan"></p>
+        <span id="dzmer">Ձմեռ</span>
+        <div class="qanak">
+            <span id="xot">Խոտերի քանակ</span>
+            <p id="qan"></p>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>   
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>

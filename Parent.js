@@ -27,7 +27,6 @@ module.exports = class Parent {
         }
         return found;
     }
-
     random(arr){
         let result = Math.floor(Math.random() * arr.length)
         return arr[result]

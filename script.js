@@ -18,13 +18,16 @@ function guyn(){
 function da(){
     socket.emit('si',"winter" )
 }
-function qanak(){
-    socket.on("qanak", function(data){
-        console.log(data);
-        // document.getElementById("qan").innerHTML(grassArr)
-    })
+function qanak(data){
+    document.getElementById("qan").innerHTML = data
 }
-document.getElementById("jnjel").addEventListener("click", qanak)
+socket.on("qanak", function(data){
+        qanak(data)
+    })
+function jnjel(){
+
+}
+document.getElementById("jnjel").addEventListener("click", jnjel)
 document.getElementById("dandagh").addEventListener("click", da)
 document.getElementById("dzmer").addEventListener("click", guyn)
 function drawMatrix(matrix) {
@@ -32,7 +35,6 @@ function drawMatrix(matrix) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
                 fill(color);
-                
             }
             else if (matrix[y][x] == 2) {
                 fill('yellow');
@@ -47,7 +49,7 @@ function drawMatrix(matrix) {
                 fill('blue')
             }
             else if (matrix[y][x] == 6) {
-                fill('gray')
+                fill('black')
             }
             else {
                 fill("#acacac");
@@ -60,14 +62,6 @@ function drawMatrix(matrix) {
 socket.on('matrix', function (matrix) {
     drawMatrix(matrix)
 })
-
-// let jnjel = document.getElementById("jnjel")
-// // .addEventListener("click", matrix.splice(randomm(0,50)))
-// function Jnjel(){
-//     jnjel.addEventListener("click", matrix.splice(randomm(0,50)))
-// }
-
-// socket.on('jnjel', Jnjel)
 
 socket.on('initial', function (matrix) {
     initialMatrix = matrix
