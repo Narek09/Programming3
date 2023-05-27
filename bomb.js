@@ -1,4 +1,4 @@
-let Parent = require('./parent')
+let Parent = require('./Parent')
 
 module.exports = class Bomb extends Parent {
     constructor(x, y) {
@@ -8,9 +8,6 @@ module.exports = class Bomb extends Parent {
     explode() {
         
         if (this.energy < 0){
-            console.log(this.energy)
-           
-            // chooseCell()
             for (let i in this.directions) {
                 let newX = this.directions[i][0];
                 let newY = this.directions[i][1];
@@ -62,7 +59,6 @@ module.exports = class Bomb extends Parent {
                     }
 
                 }
-
             }
             this.die()
         }
@@ -81,7 +77,6 @@ module.exports = class Bomb extends Parent {
         let newY = randomm(0,y-1)
         let bomb = new Bomb(newX, newY)
         bombArr.push(bomb)
-        console.log()
         matrix[this.y][this.x] = 0;
         for (let i in bombArr) {
             if (this.x == bombArr[i].x && this.y == bombArr[i].y) {

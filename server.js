@@ -122,6 +122,67 @@ function winter(){
    x = 40
 }
 
+function Jnjel(){
+   
+   let minX = Math.floor(Math.random() * matrix[0].length);
+   let minY = Math.floor(Math.random() * matrix.length)
+   let maxX = Math.floor(Math.random() * matrix[0].length);
+   let maxY = Math.floor(Math.random() * matrix.length)
+   for(let y = minY;y < maxY;y++){
+      for(let x = minX;x < maxX;x++){
+         if (matrix[x][y] == 1) {
+            for (let i in grassArr) {
+               if (x == grassArr[i].x && y == grassArr[i].y) {
+                  grassArr.splice(i, 1);
+                  matrix[x][y] = 0
+                  break;
+               }
+            }
+            
+         }
+         
+         else if(matrix[y][x] == 2){
+            for (let i in grassEaterArr) {
+               if (x == grassEaterArr[i].x && y == grassEaterArr[i].y) {
+                  grassEaterArr.splice(i, 1);
+                  matrix[y][x] = 0
+                  break;
+               }
+            }
+         }
+         else if(matrix[y][x] == 3){
+            for (let i in allEaterArr) {
+               if (x == allEaterArr[i].x && y == allEaterArr[i].y) {
+                  allEaterArr.splice(i, 1);
+                  matrix[y][x] = 0
+                  break;
+               }
+            }
+            
+         } 
+         else if(matrix[y][x] == 4){
+            for (let i in allGrassEaterArr) {
+               if (x == allGrassEaterArr[i].x && y == allGrassEaterArr[i].y) {
+                  allGrassEaterArr.splice(i, 1);
+                  matrix[y][x] = 0
+                  break;
+               }
+            }
+         } 
+         else if(matrix[y][x] == 5){
+            for (let i in amenakerArr) {
+               if (x == amenakerArr[i].x && y == amenakerArr[i].y) {
+                  amenakerArr.splice(i, 1);
+                  matrix[y][x] = 0
+                  break;
+               }
+            }
+         }
+      }
+   }
+}
+
+
 function playGame() {
    for (let i = 0; i < grassArr.length; i++) {
       grassArr[i].mul();
@@ -143,7 +204,11 @@ function playGame() {
   }
   let data = {
   gras: grassArr.length,
-  ge: grassEaterArr.length
+  ge: grassEaterArr.length,
+  ae: allEaterArr.length,
+  age: allGrassEaterArr.length,
+  am: amenakerArr.length
+
 }
   io.emit("qanak", data);
   io.emit('matrix', matrix)
@@ -152,18 +217,16 @@ function playGame() {
 
 let intervalId;
 startInterval()
-
 createCanvas();
-
 function startInterval(){
-
    clearInterval(intervalId);
    intervalId = setInterval(()=>{
       playGame()
-   },600)
+   },500)
 }
 
 io.on('connection', function(socket){
+   socket.on('jnjel', Jnjel)
    socket.on("si",winter)
    socket.emit('matrix', matrix)
    socket.emit('initial', matrix)

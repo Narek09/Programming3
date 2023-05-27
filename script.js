@@ -6,14 +6,17 @@ function setup() {
     setTimeout(function () {
         createCanvas(initialMatrix[0].length * side, initialMatrix.length * side);
     }, 1000)
-
     background('#acacac');
-
-
 }
 let color = "green"
 function guyn(){
     color = "white"
+}
+let jnjel = document.getElementById("jnjel")
+jnjel.addEventListener("click", Jnjel) 
+
+function Jnjel() {
+    socket.emit("jnjel")
 }
 function da(){
     socket.emit('si',"winter" )
@@ -21,13 +24,13 @@ function da(){
 function qanak(data){
     document.getElementById("qan").innerHTML = data.gras
     document.getElementById("qan2").innerHTML = data.ge
+    document.getElementById("qan3").innerHTML = data.ae
+    document.getElementById("qan4").innerHTML = data.age
+    document.getElementById("qan5").innerHTML = data.am
 }
 socket.on("qanak", function(data){
         qanak(data)
-    })
-function jnjel(){
-
-}
+})
 document.getElementById("jnjel").addEventListener("click", jnjel)
 document.getElementById("dandagh").addEventListener("click", da)
 document.getElementById("dzmer").addEventListener("click", guyn)
@@ -60,6 +63,7 @@ function drawMatrix(matrix) {
     }
 }
 
+
 socket.on('matrix', function (matrix) {
     drawMatrix(matrix)
 })
@@ -67,3 +71,4 @@ socket.on('matrix', function (matrix) {
 socket.on('initial', function (matrix) {
     initialMatrix = matrix
 })
+
