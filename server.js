@@ -126,8 +126,8 @@ function Jnjel(){
    
    let minX = Math.floor(Math.random() * matrix[0].length);
    let minY = Math.floor(Math.random() * matrix.length)
-   let maxX = Math.floor(Math.random() * matrix[0].length);
-   let maxY = Math.floor(Math.random() * matrix.length)
+   let maxX = Math.floor(Math.random() * (matrix[0].length - minX) + minX +1);
+   let maxY = Math.floor(Math.random() * (matrix.length - minY) + minY +1)
    for(let y = minY;y < maxY;y++){
       for(let x = minX;x < maxX;x++){
          if (matrix[x][y] == 1) {
@@ -141,39 +141,39 @@ function Jnjel(){
             
          }
          
-         else if(matrix[y][x] == 2){
+         else if(matrix[x][y] == 2){
             for (let i in grassEaterArr) {
                if (x == grassEaterArr[i].x && y == grassEaterArr[i].y) {
                   grassEaterArr.splice(i, 1);
-                  matrix[y][x] = 0
+                  matrix[x][y] = 0
                   break;
                }
             }
          }
-         else if(matrix[y][x] == 3){
+         else if(matrix[x][y] == 3){
             for (let i in allEaterArr) {
                if (x == allEaterArr[i].x && y == allEaterArr[i].y) {
                   allEaterArr.splice(i, 1);
-                  matrix[y][x] = 0
+                  matrix[x][y] = 0
                   break;
                }
             }
             
          } 
-         else if(matrix[y][x] == 4){
+         else if(matrix[x][y] == 4){
             for (let i in allGrassEaterArr) {
                if (x == allGrassEaterArr[i].x && y == allGrassEaterArr[i].y) {
                   allGrassEaterArr.splice(i, 1);
-                  matrix[y][x] = 0
+                  matrix[x][y] = 0
                   break;
                }
             }
          } 
-         else if(matrix[y][x] == 5){
+         else if(matrix[x][y] == 5){
             for (let i in amenakerArr) {
                if (x == amenakerArr[i].x && y == amenakerArr[i].y) {
                   amenakerArr.splice(i, 1);
-                  matrix[y][x] = 0
+                  matrix[x][y] = 0
                   break;
                }
             }

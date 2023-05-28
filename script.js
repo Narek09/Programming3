@@ -12,12 +12,13 @@ let color = "green"
 function guyn(){
     color = "white"
 }
-let jnjel = document.getElementById("jnjel")
-jnjel.addEventListener("click", Jnjel) 
+
 
 function Jnjel() {
     socket.emit("jnjel")
 }
+let jnjel = document.getElementById("jnjel")
+jnjel.addEventListener("click", Jnjel) 
 function da(){
     socket.emit('si',"winter" )
 }
