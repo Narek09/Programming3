@@ -6,8 +6,8 @@ module.exports = class Bomb extends Parent {
         this.energy = 10
     }
     explode() {
-        
-        if (this.energy < 0){
+
+        if (this.energy < 0) {
             for (let i in this.directions) {
                 let newX = this.directions[i][0];
                 let newY = this.directions[i][1];
@@ -64,17 +64,17 @@ module.exports = class Bomb extends Parent {
         }
         else {
             this.wait();
-        } 
+        }
     }
     die() {
-        function randomm(min, max){
-            let result = Math.floor(Math.random() * (min+max) - min +1)
+        function randomm(min, max) {
+            let result = Math.floor(Math.random() * (min + max) - min + 1)
             return result
-         }
-         let x = 50
-         let y = 50
-        let newX = randomm(0,x-1)
-        let newY = randomm(0,y-1)
+        }
+        let x = 50
+        let y = 50
+        let newX = randomm(0, x - 1)
+        let newY = randomm(0, y - 1)
         let bomb = new Bomb(newX, newY)
         bombArr.push(bomb)
         matrix[this.y][this.x] = 0;

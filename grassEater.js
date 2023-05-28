@@ -1,11 +1,11 @@
 // դեղին գույն- խոտ ուտող
 let Parent = require('./Parent')
-module.exports = class GrassEater extends Parent{
-   constructor(x,y){
-       super(x,y)
-       this.energy = 20
-   }
-    getNewCoordinates(){
+module.exports = class GrassEater extends Parent {
+    constructor(x, y) {
+        super(x, y)
+        this.energy = 20
+    }
+    getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -17,15 +17,15 @@ module.exports = class GrassEater extends Parent{
             [this.x + 1, this.y + 1]
         ];
     }
-    eat(){
+    eat() {
         let found = this.chooseCell(1);
         let oneCell = this.random(found);
-        if(oneCell) {
+        if (oneCell) {
             this.energy += 6;
             let newX = oneCell[0];
             let newY = oneCell[1];
-            for(let i in grassArr){
-                if(newX === grassArr[i].x && newY === grassArr[i].y){
+            for (let i in grassArr) {
+                if (newX === grassArr[i].x && newY === grassArr[i].y) {
                     grassArr.splice(i, 1);
                     break;
                 }
@@ -33,19 +33,19 @@ module.exports = class GrassEater extends Parent{
             matrix[newY][newX] = 2;
             matrix[this.y][this.x] = 0;
             this.x = newX;
-            this.y =newY;
-            if(this.energy > 20){
+            this.y = newY;
+            if (this.energy > 20) {
                 this.mul();
             }
-        }  
-        else{
+        }
+        else {
             this.move();
         }
     }
-    move(){
+    move() {
         let found = this.chooseCell(0);
         let oneCell = this.random(found);
-        if(oneCell){
+        if (oneCell) {
             let newX = oneCell[0];
             let newY = oneCell[1];
             this.energy--;
@@ -53,31 +53,31 @@ module.exports = class GrassEater extends Parent{
             matrix[this.y][this.x] = 0;
             this.x = newX;
             this.y = newY;
-            if(this.energy <= 0){
+            if (this.energy <= 0) {
                 this.die()
             }
         }
-        else{
+        else {
             this.energy--;
-            if(this.energy <= 0){
+            if (this.energy <= 0) {
                 this.die()
             }
         }
     }
-    die(){
+    die() {
         matrix[this.y][this.x] = 0;
-        for(let i in grassEaterArr){
-            if(grassEaterArr[i].x === this.x && grassEaterArr[i].y === this.y){
+        for (let i in grassEaterArr) {
+            if (grassEaterArr[i].x === this.x && grassEaterArr[i].y === this.y) {
                 grassEaterArr.splice(i, 1);
                 break;
             }
         }
     }
 
-    mul(){
+    mul() {
         let found = this.chooseCell(0);
         let oneCell = this.random(found);
-        if(oneCell){
+        if (oneCell) {
             let x = oneCell[0];
             let y = oneCell[1];
             matrix[y][x] = 2;

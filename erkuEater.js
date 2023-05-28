@@ -1,19 +1,19 @@
 // մանուշակագույն- կարմիրին և դեղինին ուտող
 let Parent = require('./Parent')
 module.exports = class AllGrassEater extends Parent {
-    constructor(x,y){
-        super(x,y)
+    constructor(x, y) {
+        super(x, y)
         this.energy = 15
     }
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
-            [this.x,     this.y - 1],
+            [this.x, this.y - 1],
             [this.x + 1, this.y - 1],
-            [this.x - 1, this.y    ],
-            [this.x + 1, this.y    ],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
             [this.x - 1, this.y + 1],
-            [this.x,     this.y + 1],
+            [this.x, this.y + 1],
             [this.x + 1, this.y + 1]
         ];
     }
@@ -100,15 +100,15 @@ module.exports = class AllGrassEater extends Parent {
     mul() {
         let found = this.chooseCell(0);
         let oneCell = this.random(found);
-        if (oneCell){
+        if (oneCell) {
             let x = oneCell[0];
             let y = oneCell[1];
             matrix[y][x] = 4;
-            let allgrassEater = new AllGrassEater (x, y);
+            let allgrassEater = new AllGrassEater(x, y);
             allGrassEaterArr.push(allgrassEater);
             this.energy = 15;
         }
     }
-    
+
 }
 

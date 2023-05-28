@@ -9,7 +9,7 @@ function setup() {
     background('#acacac');
 }
 let color = "green"
-function guyn(){
+function guyn() {
     color = "white"
 }
 
@@ -18,19 +18,19 @@ function Jnjel() {
     socket.emit("jnjel")
 }
 let jnjel = document.getElementById("jnjel")
-jnjel.addEventListener("click", Jnjel) 
-function da(){
-    socket.emit('si',"winter" )
+jnjel.addEventListener("click", Jnjel)
+function da() {
+    socket.emit('si', "winter")
 }
-function qanak(data){
+function qanak(data) {
     document.getElementById("qan").innerHTML = data.gras
     document.getElementById("qan2").innerHTML = data.ge
     document.getElementById("qan3").innerHTML = data.ae
     document.getElementById("qan4").innerHTML = data.age
     document.getElementById("qan5").innerHTML = data.am
 }
-socket.on("qanak", function(data){
-        qanak(data)
+socket.on("qanak", function (data) {
+    qanak(data)
 })
 document.getElementById("jnjel").addEventListener("click", jnjel)
 document.getElementById("dandagh").addEventListener("click", da)
@@ -54,7 +54,7 @@ function drawMatrix(matrix) {
                 fill('blue')
             }
             else if (matrix[y][x] == 6) {
-                fill('black')
+                fill('#acacac')
             }
             else {
                 fill("#acacac");

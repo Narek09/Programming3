@@ -1,0 +1,129 @@
+body {
+    margin-left: 10%;
+}
+
+.span {
+    font-size: 50px;
+    background-color: rgba(0, 0, 0, 0.208);
+}
+
+.kanach {
+    font-size: 50px;
+    color: green;
+    background-color: rgba(0, 0, 0, 0.208);
+}
+
+.deghin {
+    font-size: 50px;
+    color: yellow;
+    background-color: rgba(0, 0, 0, 0.208);
+}
+
+.karmir {
+    font-size: 50px;
+    color: red;
+    background-color: rgba(0, 0, 0, 0.208);
+}
+
+.purple {
+    font-size: 50px;
+    color: purple;
+    background-color: rgba(0, 0, 0, 0.208);
+}
+
+.kapuyt {
+    font-size: 50px;
+    color: blue;
+    background-color: rgba(0, 0, 0, 0.208);
+}
+
+#jnjel {
+    background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+    font-size: 60px;
+}
+
+#qanak {
+    font-size: 40px;
+}
+
+#dandagh {
+    background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+    font-size: 60px;
+}
+
+#dzmer {
+    background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+    font-size: 60px;
+}
+
+.pq {
+
+    font-size: 40px;
+    color: black;
+}
+
+#xot {
+    margin-top: 30px;
+    font-size: 40px;
+}
+
+.qanak {
+    text-align: center;
+    background-color: #bbb;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 100%;
+    margin-bottom: 20px;
+    gap: 50px;
+}
+
+.hraman {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
